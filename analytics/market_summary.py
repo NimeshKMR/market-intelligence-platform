@@ -3,34 +3,23 @@ import numpy as np
 from market_analytics.indicators import calculate_returns, annual_returns, drawdown, rolling_volatility, moving_average, trend_map, monthly_returns
 
 def market_summary(asset: pd.DataFrame):
-
     if asset.empty:
         raise ValueError("Asset dataframe is empty.")
-
     close = asset["Close"]
-
     current_price = close.iloc[-1]
-
     returns = calculate_returns(close)
-
     daily_return = returns.iloc[-1]
-
     years = (close.index[-1] - close.index[0]).days / 365.25
-
     if years > 0:
         annual_return = (close.iloc[-1] / close.iloc[0]) ** (1 / years) - 1
     else:
         annual_return = None
-
     drawdown_series = drawdown(close)
     current_drawdown = drawdown_series.iloc[-1]
     max_drawdown = drawdown_series.min()
-
     avg_volume = asset["Volume"].mean()
-
     year_high = close.tail(252).max()
     year_low = close.tail(252).min()
-
     annual_volatility = returns.std() * np.sqrt(252)
 
     trend = trend_map(close)

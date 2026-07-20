@@ -1,21 +1,16 @@
-# Python cache
 __pycache__/
 *.py[cod]
 
-# Virtual environments
 venv/
 .venv/
-env/
 
-# VS Code
 .vscode/
 
-# Environment variables
+.ipynb_checkpoints/
+
 .env
 
-# Streamlit secrets
 .streamlit/secrets.toml
 
-# OS files
 .DS_Store
 Thumbs.db

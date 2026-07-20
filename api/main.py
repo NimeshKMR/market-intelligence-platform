@@ -1,6 +1,6 @@
 from fastapi import FastAPI 
-from market_analytics.data_loader import download_asset, download_assets, align_assets
-from market_analytics.analytics import market_summary, compare_assets, correlation_analysis, period_analysis
+from market_intelligence.data.market.yahoo import download_asset, download_assets, align_assets
+from market_intelligence.market_analytics.market_summary import market_summary, compare_assets, correlation_analysis, period_analysis
 import pandas as pd 
 
 api = FastAPI()
